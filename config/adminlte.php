@@ -209,83 +209,65 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
+            'text'=>'Retour sur le site',
+            'url'=>'/homes',
         ],
+        
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
+            'text'=>'Section Home',
+            'url'=>'/admin/page-home',
+            'submenu'=> [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'bannière',
+                     'url' => '/bannière'
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'contact',
+                     'url' => '/admin/page-home/contact/index'
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'menu',
+                     'url' => '/menu'
                 ],
-            ],
+                [
+                    'text' => 'présentation',
+                     'url' => '/admin/page-home/présentation/index'
+                ],
+                [
+                    'text' => 'ready',
+                     'url' => '/admin/page-home/ready/index'
+                ],
+                [
+                    'text' => 'servicesRapide',
+                     'url' => '/admin/page-home/servicesRapide'
+                ],
+                [
+                    'text' => 'servicess',
+                     'url' => '/service'
+                ],
+                [
+                    'text' => 'team',
+                     'url' => '/team'
+                ],
+                [
+                    'text' => 'testimonials',
+                     'url' => '/testimonial'
+                ],
+                [
+                    'text' => 'vidéo',
+                     'url' => '/vidéo'
+                ],
+            ]
         ],
-        ['header' => 'labels'],
+        
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
+            'text'=>'Section Services',
+            'url'=>'/admin/page-services',
         ],
+
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
+            'text'=>'Section Footer',
+            'url'=>'/admin/page-footer',
         ],
     ],
 

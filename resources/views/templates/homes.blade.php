@@ -1,24 +1,31 @@
 
 
 
+@extends('layout.app')
+
+@section('content')
+
 @include('nav.nav');
 
-
+@foreach ($carousels as $carousel)
 	<!-- Intro Section -->
 	<div class="hero-section">
 		<div class="hero-content">
 			<div class="hero-center">
-				<img src="img/big-logo.png" alt="">
-				<p>Get your freebie template now!</p>
+				<img src="{{asset('storage/'.$carousel->logoc)}}" alt="">
+				<p>{{$carousel->description}}</p>
 			</div>
 		</div>
 		<!-- slider -->
 		<div id="hero-slider" class="owl-carousel">
-			<div class="item  hero-item" data-bg="img/01.jpg"></div>
-			<div class="item  hero-item" data-bg="img/02.jpg"></div>
+			<div class="item  hero-item" data-bg="{{asset('storage/'.$carousel->img_path)}}"></div>
+			{{-- <div class="item  hero-item" data-bg="img/02.jpg"></div> --}}
 		</div>
 	</div>
+@endforeach
 	<!-- Intro Section -->
+
+
 
 
 	<!-- About section -->
@@ -65,6 +72,38 @@
 
 
 		<!-- About contant -->
+		@if($presentation != null)
+
+		<div class="about-contant">
+			<div class="container">
+				<div class="section-title">
+					<h2>{{$presentation->titrePresentation}}</h2>
+					{{-- <h2>Get in <span>the Lab</span> and discover the world</h2> --}}
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<p>{{$presentation->textePresentation}}</p>
+					</div>
+				</div>
+				<div class="text-center mt60">
+					<a href="" class="site-btn">{{$presentation->buttonPresentation}}</a>
+				</div>
+				<!-- popup video -->
+				<div class="intro-video">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<img src="img/video.jpg" alt="">
+							<a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+								<i class="fa fa-play"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		@else
+
 		<div class="about-contant">
 			<div class="container">
 				<div class="section-title">
@@ -94,6 +133,7 @@
 				</div>
 			</div>
 		</div>
+		@endif
 	</div>
 	<!-- About section end -->
 
@@ -103,15 +143,16 @@
 		<div class="test-overlay"></div>
 		<div class="container">
 			<div class="row">
+				@foreach ($testimonials as $testimonial)
 				<div class="col-md-8 col-md-offset-4">
 					<div class="section-title left">
-						<h2>What our clients say</h2>
+						<h2>{{$testimonial->titre}}</h2>
 					</div>
 					<div class="owl-carousel" id="testimonial-slide">
 						<!-- single testimonial -->
 						<div class="testimonial">
 							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
+							<p>{{$testimonial->temoignage}}</p>
 							<div class="client-info">
 								<div class="avatar">
 									<img src="img/avatar/01.jpg" alt="">
@@ -122,79 +163,11 @@
 								</div>
 							</div>
 						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/02.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/01.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/02.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/01.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/02.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
+
 					</div>
 				</div>
 			</div>
+			@endforeach
 		</div>
 	</div>
 	<!-- Testimonial section end-->
@@ -206,23 +179,28 @@
 			<div class="section-title dark">
 				<h2>Get in <span>the Lab</span> and see the services</h2>
 			</div>
+			
 			<div class="row">
+				@if (count($services)!==0)
+				@foreach ($services as $service)
 				<!-- single service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<div class="icon">
-							<i class="flaticon-023-flask"></i>
+						<div class="icone">
+							<i class="{{$service->icone}}"></i>
 						</div>
 						<div class="service-text">
-							<h2>Get in the lab</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+							<h2>{{$service->titre}}</h2>
+							<p>{{$service->para}}</p>
 						</div>
 					</div>
 				</div>
+				@endforeach
+				@else
 				<!-- single service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<div class="icon">
+						<div class="icone">
 							<i class="flaticon-011-compass"></i>
 						</div>
 						<div class="service-text">
@@ -234,7 +212,7 @@
 				<!-- single service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<div class="icon">
+						<div class="icone">
 							<i class="flaticon-037-idea"></i>
 						</div>
 						<div class="service-text">
@@ -246,7 +224,7 @@
 				<!-- single service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<div class="icon">
+						<div class="icone">
 							<i class="flaticon-039-vector"></i>
 						</div>
 						<div class="service-text">
@@ -258,7 +236,7 @@
 				<!-- single service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<div class="icon">
+						<div class="icone">
 							<i class="flaticon-036-brainstorming"></i>
 						</div>
 						<div class="service-text">
@@ -270,7 +248,7 @@
 				<!-- single service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<div class="icon">
+						<div class="icone">
 							<i class="flaticon-026-search"></i>
 						</div>
 						<div class="service-text">
@@ -282,7 +260,7 @@
 				<!-- single service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<div class="icon">
+						<div class="icone">
 							<i class="flaticon-018-laptop-1"></i>
 						</div>
 						<div class="service-text">
@@ -294,7 +272,7 @@
 				<!-- single service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<div class="icon">
+						<div class="icone">
 							<i class="flaticon-043-sketch"></i>
 						</div>
 						<div class="service-text">
@@ -306,7 +284,7 @@
 				<!-- single service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<div class="icon">
+						<div class="icone">
 							<i class="flaticon-012-cube"></i>
 						</div>
 						<div class="service-text">
@@ -316,6 +294,7 @@
 					</div>
 				</div>
 			</div>
+			@endif
 			<div class="text-center">
 				<a href="" class="site-btn">Browse</a>
 			</div>
@@ -327,94 +306,72 @@
 	<!-- Team Section -->
 	<div class="team-section spad">
 		<div class="overlay"></div>
+		@foreach ($teams as $team)
 		<div class="container">
 			<div class="section-title">
-				<h2>Get in <span>the Lab</span> and  meet the team</h2>
+				<h2>{{$team->titre}}</h2>
 			</div>
 			<div class="row">
 				<!-- single member -->
 				<div class="col-sm-4">
 					<div class="member">
-						<img src="img/team/1.jpg" alt="">
-						<h2>Christinne Williams</h2>
-						<h3>Project Manager</h3>
+						<img src="{{asset('storage/'.$team->img_path)}}" alt="">
+						<h2>{{$team->nom}}</h2>
+						<h3>{{$team->description}}</h3>
 					</div>
 				</div>
 				<!-- single member -->
-				<div class="col-sm-4">
-					<div class="member">
-						<img src="img/team/2.jpg" alt="">
-						<h2>Christinne Williams</h2>
-						<h3>Junior developer</h3>
-					</div>
-				</div>
-				<!-- single member -->
-				<div class="col-sm-4">
-					<div class="member">
-						<img src="img/team/3.jpg" alt="">
-						<h2>Christinne Williams</h2>
-						<h3>Digital designer</h3>
-					</div>
-				</div>
+
 			</div>
 		</div>
+		@endforeach
 	</div>
 	<!-- Team Section end-->
 
 
 	<!-- Promotion section -->
+
+
 	<div class="promotion-section">
 		<div class="container">
+			@if($ready != null)
 			<div class="row">
+				<div class="col-md-9">
+					<h2>{{$ready->titreReady}}</h2>
+					<p>{{$ready->sousTitreReady}}</p>
+				</div>
+				<div class="col-md-3">
+					<div class="promo-btn-area">
+						<a href="/contact" class="site-btn btn-2">{{$ready->buttonReady}}</a>
+					</div>
+				</div>
+			
+
+	@else
+
 				<div class="col-md-9">
 					<h2>Are you ready to stand out?</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.</p>
 				</div>
 				<div class="col-md-3">
 					<div class="promo-btn-area">
-						<a href="" class="site-btn btn-2">Browse</a>
+						<a href="/contact" class="site-btn btn-2">Browse</a>
 					</div>
 				</div>
 			</div>
+			@endif
 		</div>
 	</div>
+
+
+
+
+	
 	<!-- Promotion section end-->
 
-{{-- 
-	<!-- Contact section -->
-	<div class="contact-section spad fix">
-		<div class="container">
-			<div class="row">
-				<!-- contact info -->
-				<div class="col-md-5 col-md-offset-1 contact-info col-push">
-					<div class="section-title left">
-						<h2>Contact us</h2>
-					</div>
-					<p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. </p>
-					<h3 class="mt60">Main Office</h3>
-					<p class="con-item">C/ Libertad, 34 <br> 05200 Arévalo </p>
-					<p class="con-item">0034 37483 2445 322</p>
-					<p class="con-item">hello@company.com</p>
-				</div>
-				<!-- contact form -->
-				<div class="col-md-6 col-pull">
-					<form class="form-class" id="con_form">
-						<div class="row">
-							<div class="col-sm-6">
-								<input type="text" name="name" placeholder="Your name">
-							</div>
-							<div class="col-sm-6">
-								<input type="text" name="email" placeholder="Your email">
-							</div>
-							<div class="col-sm-12">
-								<input type="text" name="subject" placeholder="Subject">
-								<textarea name="message" placeholder="Message"></textarea>
-								<button class="site-btn">send</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Contact section end--> --}}
+
+
+@include('templates.contact')
+
+	@endsection
+	<!-- Contact section end-->
