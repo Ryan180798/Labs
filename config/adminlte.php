@@ -167,7 +167,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
 
     'logout_url' => 'logout',
 
@@ -211,51 +211,61 @@ return [
         [
             'text'=>'Retour sur le site',
             'url'=>'/homes',
+            'icon' => "fas fa-desktop",
         ],
         
         [
             'text'=>'Section Home',
             'url'=>'/admin/page-home',
+            'icon' => "fas fa-home",
             'submenu'=> [
                 [
                     'text' => 'bannière',
-                     'url' => '/bannière'
+                     'url' => '/bannière',
+                     'icon' => "fas fa-flag",
                 ],
                 [
                     'text' => 'contact',
-                     'url' => '/admin/page-home/contact/index'
+                     'url' => '/admin/page-home/contact/index',
+                     'icon' => "fas fa-id-card-alt",
                 ],
                 [
                     'text' => 'menu',
-                     'url' => '/menu'
+                     'url' => '/menu',
+                     'icon' => "fas fa-bars"
                 ],
                 [
                     'text' => 'présentation',
-                     'url' => '/admin/page-home/présentation/index'
+                     'url' => '/admin/page-home/présentation/index',
+                     'icon' => "fas fa-eye"
                 ],
                 [
                     'text' => 'ready',
-                     'url' => '/admin/page-home/ready/index'
-                ],
-                [
-                    'text' => 'servicesRapide',
-                     'url' => '/admin/page-home/servicesRapide'
+                     'url' => '/admin/page-home/ready/index',
+                     'icon' => "fas fa-eye"
                 ],
                 [
                     'text' => 'servicess',
-                     'url' => '/service'
+                     'url' => '/service',
+                     'icon' => "fab fa-servicestack",
+                    
                 ],
+                
                 [
                     'text' => 'team',
-                     'url' => '/team'
+                     'url' => '/team',
+                     'icon' => "fas fa-users"
                 ],
                 [
                     'text' => 'testimonials',
-                     'url' => '/testimonial'
+                     'url' => '/testimonial',
+                     'icon' => "fab fa-discourse"
                 ],
                 [
                     'text' => 'vidéo',
-                     'url' => '/vidéo'
+                     'url' => '/vidéo',
+                     'icon' => "f03d"
+                     
                 ],
             ]
         ],
@@ -263,11 +273,44 @@ return [
         [
             'text'=>'Section Services',
             'url'=>'/admin/page-services',
+            'icon' => "fab fa-servicestack",
+            'submenu'=> [
+                [
+                    'text' => 'services primés',
+                     'url' => '/serviceprime'
+                ],
+                ]
+        ],
+
+        [
+            'text'=>'Section Blog',
+            'url'=>'/admin/page-blog',
+            'icon' => "fas fa-blog",
+            'submenu'=> [
+                [
+                    'text' => 'article',
+                     'url' => '/article',
+                     'icon' => "fas fa-newspaper"
+                ],
+                ]
+            ],
+        
+                [
+                    'text'=>'Messages',
+                    'url'=>'/admin/message/index',
+                    'icon' => "fas fa-envelope-square",
+                    'submenu'=> [
+                        [
+                            'text' => 'voir les messages',
+                             'url' => '/admin/message/index',
+                        ],
+                        ]
         ],
 
         [
             'text'=>'Section Footer',
-            'url'=>'/admin/page-footer',
+            'url'=>'/admin/page-footer/index',
+            'icon' => "fas fa-pager"
         ],
     ],
 

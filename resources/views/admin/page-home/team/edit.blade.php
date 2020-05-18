@@ -26,7 +26,7 @@
         @method('put')
 
         <div class="form-group">
-            <label for="titre">nom du titre</label>
+            <label for="titre">titre</label>
             <input type="text" id="titre" name="titre" class="form-control" value="{{$team->titre}}">
         </div>
 

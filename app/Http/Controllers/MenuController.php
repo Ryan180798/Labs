@@ -20,7 +20,7 @@ class MenuController extends Controller
             }
 
 
-        return view('menu.about');
+        return view('admin/page-home/menu/index');
     }
 
 

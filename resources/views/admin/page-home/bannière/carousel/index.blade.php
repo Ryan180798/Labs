@@ -23,7 +23,7 @@
 
 
     <table class='table mt-5 pt-5'>
-        <a class="mt-5 pt-5" href="{{route('carousel.create')}}">Ajout</a>
+      <a class="btn btn-success mt-2" href="{{route('carousel.create')}}">Ajout</a>
         <thead>
             <tr>
                 <th scope="col">logo</th> 

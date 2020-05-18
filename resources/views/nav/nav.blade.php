@@ -4,7 +4,7 @@
 	<header class="header-section">
 
 @if(!empty($menu))
-		<div class="logo col-md-2">
+		<div class="logo col-md-1">
 			<img class="" src="{{asset('storage/'.$menu->logo)}}" alt=""><!-- Logo -->
 		</div>
 		<!-- Navigation -->

@@ -3,20 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Testimonial;
+use App\Article;
 
-class TestimonialController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function _construct()
+    {
+        $this->middleware('auth')->auth;
+    }
+
+
     public function index()
-       {
-            $testimonials = Testimonial::all();
-    
-            return view('/admin/page-home/testimonials/index', compact('testimonials'));
+    {
+        $articles=Article::all();
+
+        return view('/admin/page-blog/articles/index',compact('articles'));
     }
 
     /**
@@ -26,7 +32,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        return view('/admin/page-home/testimonials/create');
+        return view('/admin/page-blog/articles/create');
     }
 
     /**
@@ -37,15 +43,18 @@ class TestimonialController extends Controller
      */
     public function store(Request $request)
     {
-        $testimonial = new Testimonial();
+        $article= new Article();
 
-        $testimonial->titre = request('titre');
-        $testimonial->temoignage = request('temoignage');
+        $article->date=request('date');
+        $article->img=request('img')->store('img');
+        $article->titre=request('titre');
+        $article->nom=request('nom');
+        $article->fonction=request('fonction');
+        $article->description=request('description');
 
-        $testimonial->save();
+        $article->save();
 
-        return redirect()->route('testimonial.index');
-
+        return redirect()->route('article.index');
     }
 
     /**
@@ -67,9 +76,9 @@ class TestimonialController extends Controller
      */
     public function edit($id)
     {
-        $testimonial = Testimonial::find($id);
+        $article=Article::find($id);
 
-        return view('/admin/page-home/testimonials/edit', compact('testimonial'));
+        return view('/admin/page-blog/articles/edit',compact('article'));
     }
 
     /**
@@ -81,18 +90,20 @@ class TestimonialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $testimonial = Testimonial::find($id);
+        $article=Article::find($id);
 
-        if (!request('titre') == null) {
-            $testimonial->titre = request('titre');
-          
-        }
+        Storage::delete($article->img);
 
+        $article->date=request('date');
+        $article->img=request('img');
+        $article->titre=request('titre');
+        $article->nom=request('nom');
+        $article->fonction=request('fonction');
+        $article->description=request('description');
 
-        $testimonial->temoignage = request('temoignage');
+        $article->save();
 
-        $testimonial->save();
-        return redirect()->route('testimonial.index');
+        return redirect()->route('article.index');
     }
 
     /**
@@ -103,10 +114,13 @@ class TestimonialController extends Controller
      */
     public function destroy($id)
     {
-        $testimonial = Testimonial::find($id);
-        
-        $testimonial->delete();
+        $article = Article::find($id);
+
+        Storage::delete($article->img);
+
+        $article->delete();
 
         return redirect()->back();
     }
 }
+

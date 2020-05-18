@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <!-- contact info -->
-            <div class="col-md-5 col-md-offset-1 contact-info col-push">
+            <div class="col-md-5 col-md-offset-1 contact-info col-push ml-5">
                 <div class="section-title left">
                     <h2>{{$contact->titre_contact}}</h2>
                 </div>
@@ -15,18 +15,31 @@
             </div>
             <!-- contact form -->
             <div class="col-md-6 col-pull">
-                <form class="form-class" id="con_form">
+                <form action="{{route('message.store')}}" method="POST" role="form" class="contactForm">
+                    @csrf
                     <div class="row">
-                        <div class="col-sm-6">
-                            <input type="text" name="name" placeholder="Your name">
+                        <div class="col-sm-6 m-2">
+                            <input class="form-control" type="text" name="nom" placeholder="Your name">
                         </div>
-                        <div class="col-sm-6">
-                            <input type="text" name="email" placeholder="Your email">
+                        <div class="col-sm-6 m-2">
+                            <input class="form-control" type="text" name="email" placeholder="Your email">
+
                         </div>
+
+                        {{-- <div class="text-danger">
+                        @error('email')
+                            {{$message}}
+                        @enderror
+                        @if (session('messages'))
+                            <div class="text-success">
+                                {{session('messages')}}
+                            </div>
+                        @endif --}}
                         <div class="col-sm-12">
-                            <input type="text" name="subject" placeholder="Subject">
-                            <textarea name="message" placeholder="Message"></textarea>
-                            <button class="site-btn">{{$contact->button_contact}}</button>
+                            <input class="form-control m-2" type="text" name="sujet" placeholder="Subject">
+
+                            <textarea  class="form-control m-2" name="message" placeholder="Message"></textarea>
+                            <button class="site-btn m-2">send</button>
                         </div>
                     </div>
                 </form>
@@ -54,17 +67,33 @@
             </div>
             <!-- contact form -->
             <div class="col-md-6 col-pull">
-                <form class="form-class" id="con_form">
+                <form action="{{route('message.store')}}" method="POST" role="form" class="contactForm">
+                    @csrf
                     <div class="row">
-                        <div class="col-sm-6">
-                            <input type="text" name="name" placeholder="Your name">
+                        <div class="col-sm-6 m-3">
+                            <input class="form-control" type="text" name="nom" placeholder="Your name">
                         </div>
-                        <div class="col-sm-6">
-                            <input type="text" name="email" placeholder="Your email">
+                        <div class="col-sm-6 m-3">
+                            <input class="form-control" type="text" name="email" placeholder="Your email">
+
                         </div>
-                        <div class="col-sm-12">
-                            <input type="text" name="subject" placeholder="Subject">
-                            <textarea name="message" placeholder="Message"></textarea>
+
+                        <div class="text-danger">
+                        @error('email')
+                            {{$message}}
+                        @enderror
+                        @if (session('messages'))
+                            <div class="text-success">
+                                {{session('messages')}}
+                            </div>
+
+                        @endif
+                        </div>
+
+                        <div class="col-sm-12 m-3">
+                            <input class="form-control" type="text" name="sujet" placeholder="Subject">
+                            
+                            <textarea  class="form-control my-3"name="message" placeholder="Message"></textarea>
                             <button class="site-btn">send</button>
                         </div>
                     </div>
@@ -78,8 +107,3 @@
 <!-- Contact section end-->
 
 
-<!-- Footer section -->
-<footer class="footer-section">
-    <h2>2017 All rights reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></h2>
-</footer>
-<!-- Footer section end -->

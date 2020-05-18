@@ -40,6 +40,7 @@ class TeamController extends Controller
     {
         $team = new Team();
 
+        $team->titre = request('titre');
         $team->nom = request('nom');
         $team->img_path = request('img')->store('img');
         $team->description = request('description');

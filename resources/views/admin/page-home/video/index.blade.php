@@ -24,19 +24,14 @@
 
 
     <table class='table mt-5 pt-5'>
-        <thead>
-            <tr>
-                <th scope="col">URL</th>
-            </tr>
-        </thead>
 
    
-        <form action="{{route('video.update',$video->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('video.update')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-12 form-group">
                 <label for="url">Enter Url here:</label>
-                <input name="url" type='text' id="url" placeholder="https://example.com" class="form-control" value="{{$video->url}}"></>
+                <input name="url" type='text' id="url" placeholder="https://example.com" class="form-control">{{!empty($video) ?$video->url : ''}}</>
                 </div>  
         </div>
     

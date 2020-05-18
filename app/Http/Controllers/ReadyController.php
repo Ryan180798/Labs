@@ -9,7 +9,7 @@ class ReadyController extends Controller
 {
     public function edit(){
         
-        $ready = Ready::all();
+        $ready = Ready::find(1);
 
         if ($ready != null) {
             return view('admin/page-home/ready/index', compact('ready'));
@@ -23,7 +23,7 @@ class ReadyController extends Controller
 
     public function update(){
 
-        $ready = Ready::all();
+        $ready = Ready::find(1);
 
         if ($ready != null) {
                     $ready->titreReady = request('titreReady');

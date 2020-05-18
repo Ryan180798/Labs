@@ -256,5 +256,5 @@
 	</div>
 	<!-- page section end-->
 
-
+	@include('footer.footer')
 @endsection

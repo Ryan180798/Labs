@@ -21,7 +21,7 @@
     </div>
 
 
-        <a href="{{route('team.create')}}">Ajout</a>
+        <a class="btn btn-success mt-2" href="{{route('team.create')}}">Ajout</a>
     
         <table class='table'>
             <thead>

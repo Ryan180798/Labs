@@ -139,7 +139,7 @@
 				</div>
 			</div>
 			<div class="text-center">
-				<a href="" class="site-btn">Browse</a>
+				<a href="#prime" class="site-btn">Browse</a>
 			</div>
 		</div>
 	</div>
@@ -147,7 +147,95 @@
 
 
 	<!-- features section -->
-	<div class="team-section spad">
+	@if($serviceprime != null)
+	<div id="prime" class="team-section spad">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="section-title">
+				<h2>{{$serviceprime->titre}}</h2>
+			</div>
+			<div class="row">
+				<!-- feature item -->
+				<div class="col-md-4 col-sm-4 features">
+					<div class="icon-box light left">
+						<div class="service-text">
+							<h2>Get in the lab</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+						</div>
+						<div class="icon">
+							<i class="flaticon-002-caliper"></i>
+						</div>
+					</div>
+					<!-- feature item -->
+					<div class="icon-box light left">
+						<div class="service-text">
+							<h2>Projects online</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+						</div>
+						<div class="icon">
+							<i class="flaticon-019-coffee-cup"></i>
+						</div>
+					</div>
+					<!-- feature item -->
+					<div class="icon-box light left">
+						<div class="service-text">
+							<h2>SMART MARKETING</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+						</div>
+						<div class="icon">
+							<i class="flaticon-020-creativity"></i>
+						</div>
+					</div>
+				</div>
+				<!-- Devices -->
+				<div class="col-md-4 col-sm-4 devices">
+					<div class="text-center">
+						<img src="img/device.png" alt="">
+					</div>
+				</div>
+				<!-- feature item -->
+				<div class="col-md-4 col-sm-4 features">
+					<div class="icon-box light">
+						<div class="icon">
+							<i class="flaticon-037-idea"></i>
+						</div>
+						<div class="service-text">
+							<h2>Get in the lab</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+						</div>
+					</div>
+					<!-- feature item -->
+					<div class="icon-box light">
+						<div class="icon">
+							<i class="flaticon-025-imagination"></i>
+						</div>
+						<div class="service-text">
+							<h2>Projects online</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+						</div>
+					</div>
+					<!-- feature item -->
+					<div class="icon-box light">
+						<div class="icon">
+							<i class="flaticon-008-team"></i>
+						</div>
+						<div class="service-text">
+							<h2>SMART MARKETING</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur ad ipiscing elit. Curabitur leo est, feugiat nec</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="text-center mt100">
+				<a href="/blog" class="site-btn">{{$serviceprime->button}}</a>
+			</div>
+		</div>
+	</div>
+
+	@else
+
+
+	<div id="prime" class="team-section spad">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="section-title">
@@ -226,10 +314,11 @@
 				</div>
 			</div>
 			<div class="text-center mt100">
-				<a href="" class="site-btn">Browse</a>
+				<a href="/blog" class="site-btn">Browse</a>
 			</div>
 		</div>
 	</div>
+	@endif
 	<!-- features section end-->
 
 
@@ -299,50 +388,9 @@
 	<!-- newsletter section end-->
 
 
-	<!-- Contact section -->
-	<div class="contact-section spad fix">
-		<div class="container">
-			<div class="row">
-				<!-- contact info -->
-				<div class="col-md-5 col-md-offset-1 contact-info col-push">
-					<div class="section-title left">
-						<h2>Contact us</h2>
-					</div>
-					<p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. </p>
-					<h3 class="mt60">Main Office</h3>
-					<p class="con-item">C/ Libertad, 34 <br> 05200 Arévalo </p>
-					<p class="con-item">0034 37483 2445 322</p>
-					<p class="con-item">hello@company.com</p>
-				</div>
-				<!-- contact form -->
-				<div class="col-md-6 col-pull">
-					<form class="form-class" id="con_form">
-						<div class="row">
-							<div class="col-sm-6">
-								<input type="text" name="name" placeholder="Your name">
-							</div>
-							<div class="col-sm-6">
-								<input type="text" name="email" placeholder="Your email">
-							</div>
-							<div class="col-sm-12">
-								<input type="text" name="subject" placeholder="Subject">
-								<textarea name="message" placeholder="Message"></textarea>
-								<button class="site-btn">send</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Contact section end-->
+	@include('templates.contact')
 
-
-	<!-- Footer section -->
-	<footer class="footer-section">
-		<h2>2017 All rights reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></h2>
-	</footer>
-	<!-- Footer section end -->
+	@include('footer.footer')
 
 
 @endsection

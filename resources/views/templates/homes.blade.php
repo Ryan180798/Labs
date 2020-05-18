@@ -12,13 +12,14 @@
 	<div class="hero-section">
 		<div class="hero-content">
 			<div class="hero-center">
-				<img src="{{asset('storage/'.$carousel->logoc)}}" alt="">
+				<img src="{{asset('storage/'.$carousel->logoc)}}" alt="...">
 				<p>{{$carousel->description}}</p>
 			</div>
 		</div>
 		<!-- slider -->
 		<div id="hero-slider" class="owl-carousel">
-			<div class="item  hero-item" data-bg="{{asset('storage/'.$carousel->img_path)}}"></div>
+			<div class="item hero-item" data-bg="{{asset('storage/'.$carousel->img_path)}}"></div>	
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0YyDTa0qqOjIerob2VTIwo_XVMhrruxo"></script>
 			{{-- <div class="item  hero-item" data-bg="img/02.jpg"></div> --}}
 		</div>
 	</div>
@@ -81,7 +82,7 @@
 					{{-- <h2>Get in <span>the Lab</span> and discover the world</h2> --}}
 				</div>
 				<div class="row">
-					<div class="col-md-6">
+					<div class="mx-auto">
 						<p>{{$presentation->textePresentation}}</p>
 					</div>
 				</div>
@@ -89,6 +90,18 @@
 					<a href="" class="site-btn">{{$presentation->buttonPresentation}}</a>
 				</div>
 				<!-- popup video -->
+				@if(!empty($video))
+				<div class="intro-video">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2">
+							<img src="img/video.jpg" alt="">
+							<a href="{{$video->url}}" class="video-popup">
+								<i class="fa fa-play"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				@else
 				<div class="intro-video">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
@@ -99,6 +112,7 @@
 						</div>
 					</div>
 				</div>
+				@endif
 			</div>
 		</div>
 
@@ -184,12 +198,12 @@
 				@if (count($services)!==0)
 				@foreach ($services as $service)
 				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
+				<div class="col-md-2 col-sm-6">
+					<div class="service ">
 						<div class="icone">
 							<i class="{{$service->icone}}"></i>
 						</div>
-						<div class="service-text">
+						<div class="service-text text-center mx-auto">
 							<h2>{{$service->titre}}</h2>
 							<p>{{$service->para}}</p>
 						</div>
@@ -295,9 +309,10 @@
 				</div>
 			</div>
 			@endif
-			<div class="text-center">
-				<a href="" class="site-btn">Browse</a>
-			</div>
+
+		</div>
+		<div class="text-center pb-5">
+			<a href="" class="site-btn">Browse</a>
 		</div>
 	</div>
 	<!-- services section end -->
@@ -330,11 +345,10 @@
 
 
 	<!-- Promotion section -->
-
-
+	@if($ready != null)
 	<div class="promotion-section">
 		<div class="container">
-			@if($ready != null)
+
 			<div class="row">
 				<div class="col-md-9">
 					<h2>{{$ready->titreReady}}</h2>
@@ -345,10 +359,14 @@
 						<a href="/contact" class="site-btn btn-2">{{$ready->buttonReady}}</a>
 					</div>
 				</div>
-			
-
+			</div>
+		</div>
+	</div>
 	@else
+	<div class="promotion-section">
+		<div class="container">
 
+			<div class="row">
 				<div class="col-md-9">
 					<h2>Are you ready to stand out?</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.</p>
@@ -359,9 +377,10 @@
 					</div>
 				</div>
 			</div>
-			@endif
+			</div>
 		</div>
-	</div>
+	@endif
+
 
 
 
@@ -372,6 +391,6 @@
 
 
 @include('templates.contact')
-
+@include('footer.footer')
 	@endsection
 	<!-- Contact section end-->

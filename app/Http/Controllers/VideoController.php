@@ -8,85 +8,46 @@ use App\Video;
 
 class VideoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+    public function edit(){
+        
+        $video = Video::find(1);
 
+        if ($video != null) {
+            return view('admin/page-home/video/index', compact('video'));
+         } 
+            else {
+            return view('admin/page-home/video/index');
+            }
+
+
+        return view('admin/page-home/video/index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    public function update(){
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    
-        public function edit($id){
-            
-            $video = Video::find($id);
-    
-    
-            return view('admin/page-home/vidéo/index',compact('video'));
-        }
-    
-    
-    
-        public function update(Request $request, $id){
-    
-            $video = Video::find($id);
-    
-            $video->url = request('url');
+        $video = Video::find(1);
 
-            $video->save();
+        if ($video != null) {
 
-            return redirect()->route('admin');
-    }
-    
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+                if(request('url') != null){
+                    $video->url = request('url');
+                }
+                
+                $video->save();
+                return redirect()->route('admin');
+            }
+            else {
+                $video = new Video();
+
+                $video->url = request('url');
+        
+                $video->save();
+        
+                return redirect()->route('admin');  
+
+            }
+}
 }
